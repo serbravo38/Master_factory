@@ -1,0 +1,166 @@
+{% extends 'demo/base.html' %}
+{% load static %}
+
+{% block title %}Bienvenidos a Master Factory{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center">BIENVENIDOS A MASTER FACTORY</h1>
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <h2 class="text-center">TIPOS DE PC A LA VENTA!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card card-custom">
+                <div class="card-body">
+                    <h5 class="card-title">PC GAMERS</h5>
+                    <a href="{% url 'pc_gamer' %}">
+                        <img src="{% static 'img/pcgamer.jpg' %}" class="card-img-top" alt="PC Gamer">
+                    </a>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-custom">
+                <div class="card-body">
+                    <h5 class="card-title">WORKSTATIONS</h5>
+                    <a href="{% url 'workstations' %}">
+                        <img src="{% static 'img/pcworkstation.jpg' %}" class="card-img-top" alt="Workstation">
+                    </a>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-custom">
+                <div class="card-body">
+                    <h5 class="card-title">OFICINA - HOME OFFICE</h5>
+                    <a href="{% url 'home_office' %}">
+                        <img src="{% static 'img/pchome.jpg' %}" class="card-img-top" alt="Oficina - Home Office">
+                    </a>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="{% url 'transbank' %}">
+    <img src="{% static 'img/transbank.png' %}" class="mt-4" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 160px;">
+</a>
+
+<br></br>
+<footer
+    class="text-center text-lg-start text-white"
+    style="background-color: #000000"
+>
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">
+                        MASTER FACTORY
+                    </h6>
+                    <p class="text-white">
+                        Obten ofertas y promociones exclusivas.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none" />
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Producto</h6>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'pc_gamer' %}" >PC GAMERS</a>
+                    </p>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'workstations' %}">WORKSTATIONS</a>
+                    </p>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'home_office' %}">OFICINA - HOME OFFICE</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none" />
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
+                    <p class="text-white"><i class="fas fa-home mr-3"></i> Providencia #10012, Stgo. Ch</p>
+                    <p class="text-white"><i class="fas fa-envelope mr-3"></i> masterfactory@gmail.com</p>
+                    <p class="text-white"><i class="fas fa-phone mr-3"></i> +56 9 5879 5468</p>
+                    <p class="text-white"><i class="fas fa-print mr-3"></i> +2 2687 8765</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+
+        <hr class="my-3">
+
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0">
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                    <!-- Copyright -->
+                    <div class="p-3">
+                        © 2025 Copyright ♡
+                    </div>
+                    <!-- Copyright -->
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com" target="_blank"
+                    class="btn btn-outline-light btn-floating m-1 text-white"
+                    role="button">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                    <!-- Twitter (ahora X) -->
+                    <a href="https://www.twitter.com" target="_blank"
+                    class="btn btn-outline-light btn-floating m-1 text-white"
+                    role="button">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                    <!-- Google (usualmente Gmail o buscador) -->
+                    <a href="https://www.google.com" target="_blank"
+                    class="btn btn-outline-light btn-floating m-1 text-white"
+                    role="button">
+                        <i class="fab fa-google"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com" target="_blank"
+                    class="btn btn-outline-light btn-floating m-1 text-white"
+                    role="button">
+                        <i class="fab fa-instagram"></i>
+                     </a>
+                
+                </div>
+                <!-- Grid column -->
+            </div>
+        </section>
+        <!-- Section: Copyright -->
+    </div>
+    <!-- Grid container -->
+</footer>
+<!-- Footer -->   
+ 
+
+{% endblock content %}

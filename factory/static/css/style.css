@@ -1,0 +1,187 @@
+/* Fondo general */
+body {
+    background-color: #000; /* Color negro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Títulos */
+h1, h2 {
+    text-align: center;
+    color: #00bfff;
+}
+
+/* Navbar */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-text {
+    color: #ffffff;
+}
+
+/* Tarjetas personalizadas */
+.card-custom {
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+    padding: 10px;
+}
+
+/* Carrusel */
+.carousel {
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botón brillante */
+button {
+    --glow-color: #00bfff;
+    --btn-color: #121212;
+    background-color: var(--btn-color);
+    color: var(--glow-color);
+    border: 2px solid var(--glow-color);
+    padding: 0.8em 2em;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--glow-color);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--glow-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+}
+/* Contenedor principal para centrar vertical y horizontalmente */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #0f0f0f; /* opcional */
+    padding: 2rem;
+}
+
+/* Formulario estilizado */
+.contact_form {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,191,255,0.2);
+    width: 100%;
+    max-width: 500px;
+    color: #fff;
+}
+
+.contact_form h1,
+.contact_form h3 {
+    text-align: center;
+    color: #00bfff;
+}
+
+.contact_form p {
+    margin-bottom: 15px;
+}
+
+.contact_form label span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact_form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #666;
+    border-radius: 10px;
+    color: #fff;
+}
+
+/* Botón */
+#enviar {
+    background-color: #00bfff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#enviar:hover {
+    background-color: #009acd;
+}
+
+/* Aviso */
+.aviso {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.title {
+    font-size: 24px;
+    color: #00bfff;
+    margin-bottom: 10px;
+}
+
+/* Precios tachados y nuevos */
+.old-price {
+    text-decoration: line-through;
+    color: red;
+}
+
+.new-price {
+    font-weight: bold;
+    color: #00ffae;
+}
+
+/* Contenedor de tarjetas */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    background-color: #121212;
+    border: 1px solid #444;
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+
+/* Footer centrado */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color:white;
+    color: black;
+    margin-top: 2rem;
+}

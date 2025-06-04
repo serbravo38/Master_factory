@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración Transbank</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-transparent navbar-expand-lg">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'img/logofactory.jpg' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'pc_armados' %}">PC armados <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'laboratorio' %}">Laboratorios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacto_list' %}">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'pc_gamer' %}">PC GAMERS</a>
+                        <a class="dropdown-item" href="{% url 'workstations' %}">WORKSTATIONS</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'home_office' %}">OFICINA-HOME OFFICE</a>
+                    </div>
+                </li>
+                <a href="{% url 'carrito' %}">
+                    <img src="{% static 'img/carrito-de-compras.png' %}" width="40" height="40" class="d-inline-block align-top" alt="Carrito de compras">
+                </a>
+            </ul>
+            <a href="{% url 'index' %}">
+                <button>Inicio</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-5"> <!-- Contenedor Bootstrap para centrar el contenido -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Formulario de Pago</h2>
+
+                <form id="payment-form" action="url_de_tu_servidor_para_procesar_pago" method="POST">
+                    <div class="form-group">
+                        <label for="card_number">Número de Tarjeta:</label>
+                        <input type="text" id="card_number" name="card_number" class="form-control" required placeholder="XXX-XXX-XXX-XXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="card_expiration">Fecha de Expiración (MM/YY):</label>
+                        <input type="text" id="card_expiration" name="card_expiration" class="form-control" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Monto a Pagar:</label>
+                        <input type="text" id="amount" name="amount" class="form-control" required>
+                    </div>
+
+                    <button type="button" onclick="payWithTransbank()" class="btn btn-primary btn-block">Pagar</button>
+                </form>
+
+                <img src="{% static 'img/transbank.png' %}" class="mt-4 mx-auto d-block" style="width: 400px; height: 160px;" alt="Transbank">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- Incluir el script del SDK de Transbank -->
+    <script src="ruta_al_sdk_de_transbank/transbank-sdk.js"></script>
+
+    <script>
+        function payWithTransbank() {
+            // Recoger los datos del formulario
+            var cardNumber = document.getElementById('card_number').value;
+            var cardExpiration = document.getElementById('card_expiration').value;
+            var cvv = document.getElementById('cvv').value;
+            var amount = document.getElementById('amount').value;
+
+            // Llamar a la función del SDK de Transbank para procesar el pago
+            TransbankSDK.processPayment({
+                cardNumber: cardNumber,
+                cardExpiration: cardExpiration,
+                cvv: cvv,
+                amount: amount
+            }, function(response) {
+                // Aquí puedes manejar la respuesta del pago (éxito o error)
+                console.log(response);
+                alert('Pago procesado correctamente');
+            }, function(error) {
+                // Manejar errores de pago
+                console.error('Error al procesar el pago:', error);
+                alert('Error al procesar el pago');
+            });
+        }
+    </script>
+
+    <br></br>
+<footer
+    class="text-center text-lg-start text-white"
+    style="background-color: #000000"
+>
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">
+                        MASTER FACTORY
+                    </h6>
+                    <p class="text-white">
+                        Obten ofertas y promociones exclusivas.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none" />
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Producto</h6>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'pc_gamer' %}" >PC GAMERS</a>
+                    </p>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'workstations' %}">WORKSTATIONS</a>
+                    </p>
+                    <p class="text-white">
+                        <a class="text-white" href="{% url 'home_office' %}">OFICINA - HOME OFFICE</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none" />
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
+                    <p class="text-white"><i class="fas fa-home mr-3"></i> Providencia #10012, Stgo. Ch</p>
+                    <p class="text-white"><i class="fas fa-envelope mr-3"></i> masterfactory@gmail.com</p>
+                    <p class="text-white"><i class="fas fa-phone mr-3"></i> +56 9 5879 5468</p>
+                    <p class="text-white"><i class="fas fa-print mr-3"></i> +2 2687 8765</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+
+        <hr class="my-3">
+
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0">
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                    <!-- Copyright -->
+                    <div class="p-3">
+                        © 2025 Copyright ♡
+                    </div>
+                    <!-- Copyright -->
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                    <!-- Facebook -->
+                        <a href="https://www.facebook.com" target="_blank"
+                        class="btn btn-outline-light btn-floating m-1 text-white"
+                        role="button">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <!-- Twitter (ahora X) -->
+                        <a href="https://www.twitter.com" target="_blank"
+                        class="btn btn-outline-light btn-floating m-1 text-white"
+                        role="button">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+
+                        <!-- Google (usualmente Gmail o buscador) -->
+                        <a href="https://www.google.com" target="_blank"
+                        class="btn btn-outline-light btn-floating m-1 text-white"
+                        role="button">
+                            <i class="fab fa-google"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank"
+                        class="btn btn-outline-light btn-floating m-1 text-white"
+                        role="button">
+                            <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <!-- Grid column -->
+            </div>
+        </section>
+        <!-- Section: Copyright -->
+    </div>
+    <!-- Grid container -->
+</footer>
+<!-- Footer -->   
+
+<footer>
+    Todos los derechos reservados 2025
+</footer>
+
+
+</body>
+</html>
