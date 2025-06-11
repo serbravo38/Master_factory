@@ -1,0 +1,7 @@
+# Entorno virtual
+/myvenv
+
+
+# Archivos de configuración
+#*.env
+#.envgit add
