@@ -5,7 +5,7 @@
 <ul>
     <li>Jason Venegas</li>
     <li>Sergio Bravo</li>
-    <li>Paul Henrriquez</li>
+    <li>Paul Henriquez</li>
     <li>Esteban Salas</li>
     
 </ul>
