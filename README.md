@@ -1,17 +1,18 @@
-<h1>Taller mecanico incompleto</h1>
+<h1>Master Factory</h1>
 <h3>seguir elaborando</h3>
 
 <h4>Grupo</h4>
 <ul>
+    <li>Jason Venegas</li>
+    <li>Sergio Bravo</li>
+    <li>Paul Henrriquez</li>
     <li>Esteban Salas</li>
-    <li></li>
-    <li></li>
-    <li></li>
+    
 </ul>
 
 <h4>ingreso a Crud</h4>
 <p>usario: admin</p>
-<p>contrasena: admin</p>
+<p>contrasena: master123</p>
 
 <h3>pasos para hacer correr proyecto</h3>
 <ol>
